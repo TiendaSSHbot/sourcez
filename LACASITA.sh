@@ -584,13 +584,7 @@ msg -bar2
  }
  
 error_fun () {
-
-echo ""
-msg -bar2 && msg -verm "ERROR DE GENERADOR | ARCHIVOS INCOMPLETOS\n	KEY USADA" && msg -bar2
-[[ -d ${SCPinstal} ]] && rm -rf ${SCPinstal}
-[[ -e $HOME/lista-arq ]] && rm $HOME/lista-arq
-rm -rf lista-arq
-exit 1
+install_fim
 }
 invalid_key () {
 
