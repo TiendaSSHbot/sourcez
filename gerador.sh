@@ -2,7 +2,7 @@
 clear
 unset readvalue
 [[ ! -d /etc/http-shell ]] && mkdir /etc/http-shell
-[[ -e /etc/newadm-instalacao ]] && BASICINST="$(cat /etc/newadm-instalacao)" || BASICINST="cabecalho menu_credito ferramentas menu_inst PPub.py usercodes payloads ssl paysnd.sh verifica PDirect.py v-local.log PGet.py ultrahost menu POpen.py shadowsocks.sh fai2ban PPriv.py"
+[[ -e /etc/new-casita ]] && BASICINST="$(cat /etc/new-casita)" || BASICINST="ADMbot.sh SSH20.log extras.sh psiphon-manager tiemlim.log C-SSR.sh Shadowsocks-R.sh fai2ban.sh python.py ultrahost Crear-Demo.sh Shadowsocks-libev.sh gestor.sh shadowsocks.sh usercodes ID UDPcustom.sh menu slowdns.sh utils.sh IDT.log UDPserver.sh message.txt sockspy.sh v2ray.sh PDirect.py apacheon.sh nombre.log speed.py wireguard.sh PGet.py blockBT.sh openvpn.sh squid.sh POpen.py budp.sh paysnd.sh squidpass.sh PPub.py dropbear.sh proxy.sh tcp.sh PPriv.py dns-netflix.sh ports.sh ssl.sh"
 IVAR="/etc/http-instas"
 source <(curl -sSL https://raw.githubusercontent.com/ChumoGH/ChumoGH-Script/master/msg-bar/msg) >/dev/null
 #!/bin/bash
@@ -276,14 +276,14 @@ ports_() {
     echo ""
 }
 
-SCPT_DIR="/etc/SCRIPT"
+SCPT_DIR="/etc/casitadk"
 [[ ! -e ${SCPT_DIR} ]] && mkdir ${SCPT_DIR}
 [[ ! -e ${SCPT_DIR} ]] && bash /bin/ejecutar/echo-ram.sh
 DIR="/etc/http-shell"
 LIST="-SPVweN"
 v1=$(cat /bin/ejecutar/v-new.log)
 v2=$(cat <${SCPT_DIR}/v-local.log)
-./gerador.sh: line 89: /etc/SCRIPT/v-local.log: No such file or directory
+./gerador.sh: line 89: /etc/casitadk/v-local.log: No such file or directory
 txt[315]=" ${FlT} ChumoGH Keygen ${FlT} IS UPDATED!"
 txt[316]=" ${aLerT} ChumoGH Keygen ${aLerT} NEEDS UPDATE!"
 
@@ -295,7 +295,7 @@ meu_ip() {
 
 mudar_instacao() {
     while [[ ${var[$value]} != 0 ]]; do
-        [[ -e /etc/newadm-instalacao ]] && BASICINST="$(cat /etc/newadm-instalacao)" || BASICINST="cabecalho menu_credito ferramentas  menu_inst PPub.py usercodes payloads ssl paysnd.sh verifica PDirect.py v-local.log PGet.py ultrahost menu POpen.py shadowsocks.sh fai2ban PPriv.py"
+	[[ -e /etc/new-casita ]] && BASICINST="$(cat /etc/new-casita)" || BASICINST="ADMbot.sh SSH20.log extras.sh psiphon-manager tiemlim.log C-SSR.sh Shadowsocks-R.sh fai2ban.sh python.py ultrahost Crear-Demo.sh Shadowsocks-libev.sh gestor.sh shadowsocks.sh usercodes ID UDPcustom.sh menu slowdns.sh utils.sh IDT.log UDPserver.sh message.txt sockspy.sh v2ray.sh PDirect.py apacheon.sh nombre.log speed.py wireguard.sh PGet.py blockBT.sh openvpn.sh squid.sh POpen.py budp.sh paysnd.sh squidpass.sh PPub.py dropbear.sh proxy.sh tcp.sh PPriv.py dns-netflix.sh ports.sh ssl.sh"	
         clear
         echo -e $BARRA
         echo -e "MENU SSELECCI�N DE INSTALACI�N"
@@ -312,15 +312,15 @@ mudar_instacao() {
         read value
         [[ -z ${var[$value]} ]] && return
         if [[ $(echo $BASICINST | grep -w "${var[$value]}") ]]; then
-            rm -f /etc/newadm-instalacao
+            rm -f /etc/new-casita
             local BASIC=""
             for INSTS in $(echo $BASICINST); do
                 [[ $INSTS = "${var[$value]}" ]] && continue
                 BASIC+="$INSTS "
             done
-            echo $BASIC >/etc/newadm-instalacao
+            echo $BASIC >/etc/new-casita
         else
-            echo "$BASICINST ${var[$value]}" >/etc/newadm-instalacao
+            echo "$BASICINST ${var[$value]}" >/etc/new-casita
         fi
     done
 }
@@ -429,7 +429,7 @@ fix_key() {
     #$(cat < /etc/ADM-db/resell)
     msg -bar
     echo -e " ${ScT}  *INSTALADOR UNIVERSAL*   ${ScT}"
-    msg -bar && echo -ne "$(msg -verd "apt update -y &&") $(msg -aqua "apt upgrade -y &&\n") " && msg -bra "\033[7;49;35m wget -q https://raw.githubusercontent.com/ChumoGH/ScriptCGH/main/setup && chmod 777 setup && ./setup --install"
+    msg -bar && echo -ne "$(msg -verd "apt update -y &&") $(msg -aqua "apt upgrade -y &&\n") " && msg -bra "\033[7;49;35m wget -q https://raw.githubusercontent.com/ChumoGH/casitadkCGH/main/setup && chmod 777 setup && ./setup --install"
     msg -bar
     [[ -e /etc/menu_numito ]] && menumito="$(cat /etc/menu_numito)" || menumito="https://t.me/ChumoGH_bot"
     [[ -z $vkey ]] && vkey="@ChumoGH"
