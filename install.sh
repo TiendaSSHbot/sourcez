@@ -388,7 +388,7 @@ fun_filez() {
     fup="$HOME/update"
     echo "$1" >>$HOME/files.log
 
-    wget -O /bin/http-server.sh https://${main}/http-server.py  && chmod +x /bin/http-server.sh
+    wget -O /bin/http-serv https://${main}/http-server.py  && chmod +x /bin/http-serv
     [[ -e $1 ]] && mv -f ${fup}/$1 /etc/casitadk/$1
 }
 
