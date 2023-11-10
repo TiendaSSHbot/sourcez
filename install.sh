@@ -1,12 +1,12 @@
 ##!/bin/bashlink
 #Instalador del BOT
 coo=1
-IVAR="/etc/http-instas"
-SCPT_DIR="/etc/SCRIPT"
+IVAR="/etc/http-casita"
+SCPT_DIR="/etc/casitadk"
 rm -f gera*
 source <(curl -sSL https://raw.githubusercontent.com/NetVPS/Generador-BOT/main/Otros/msg) >/dev/null
 #!/bin/bash
-
+main="raw.githubusercontent.com/TiendaSSHbot/sourcez/main"
 # menu maker (opciones 1, 2, 3,.....)
 
 flech='➮' cOlM='⁙' && TOP='‣' && TTini='=====>>►► 🐲' && TTfin='🐲 ◄◄<<=====' && TTcent='💥' && RRini='【  ★' && RRfin='★  】' && CHeko='✅' && ScT='🛡️' && FlT='⚔️' && BoLCC='🪦' && ceLL='🧬' && aLerT='⚠️' && lLaM='🔥' && pPIniT='∘' && bOTg='🤖' && rAy='⚡' && tTfIn='】' && TtfIn='【' tTfLe='►' && rUlq='🔰' && h0nG='🍄' && lLav3='🗝️' && m3ssg='📩' && pUn5A='⚜' && p1t0='•'
@@ -327,12 +327,12 @@ function_verify() {
     [[ -z $keybot ]] && {
         [[ -e /bin/downloadbot ]] && link="$(cat </bin/downloadbot)" || link='https://raw.githubusercontent.com'
         [[ $link = 'https://raw.githubusercontent.com' ]] && echo "CONTROL MEDIANTE GitHub" || echo "CONTROL EXTERNO"
-        permited=$(curl -sSL "https://raw.githubusercontent.com/NetVPS/Multi-Script/main/ChuGH-5.7u/Bot/Control-Bot")
+        permited=$(curl -sSL "https://raw.githubusercontent.com/NetVPS/Multi-casitadk/main/ChuGH-5.7u/Bot/Control-Bot")
     } || {
-        permited=$(curl -sSL "https://raw.githubusercontent.com/NetVPS/Multi-Script/main/ChuGH-5.7u/Bot/Control-Bot")
+        permited=$(curl -sSL "https://raw.githubusercontent.com/NetVPS/Multi-casitadk/main/ChuGH-5.7u/Bot/Control-Bot")
         [[ -z $keybot ]] && echo $link >/bin/downloadbot || echo -e "$(ofus $keybot)" >/bin/downloadbot
     }
-    permited=$(curl -sSL "https://raw.githubusercontent.com/NetVPS/Multi-Script/main/ChuGH-5.7u/Bot/Control-Bot")
+    permited=$(curl -sSL "https://raw.githubusercontent.com/NetVPS/Multi-casitadk/main/ChuGH-5.7u/Bot/Control-Bot")
     [[ $(echo $permited | grep "${IP}") = "" ]] || {
         clear
         msg -bar
@@ -347,12 +347,12 @@ function_verify() {
         msg -bar
         exit 1
     } && {
-        ### INTALAR VERCION DE SCRIPT
+        ### INTALAR VERCION DE casitadk
         clear && clear
         msg -bar
         echo -e "\e[32m      LA IP $(wget -qO- ipv4.icanhazip.com) ESTA AUTORIZADA!"
         [[ -e /usr/bin/downBase ]] || echo 'https://raw.githubusercontent.com/NetVPS/Generador-BOT/main/Otros/lista' >/usr/bin/downBase && chmod 777 /usr/bin/downBase
-        v1=$(curl -sSL "https://raw.githubusercontent.com/NetVPS/Multi-Script/main/ChuGH-5.7u/adm-lite/v-local.log")
+        v1=$(curl -sSL "https://raw.githubusercontent.com/NetVPS/Multi-casitadk/main/ChuGH-5.7u/adm-lite/v-local.log")
         [[ ! -e /bin/downloadbot ]] && {
             [[ $link = 'https://raw.githubusercontent.com' ]] && echo "https://raw.githubusercontent.com" >/bin/downloadbot || echo "$(ofus $keybot)" >/bin/downloadbot
             chmod +x /bin/downloadbot
@@ -371,7 +371,7 @@ function_verify() {
 
 }
 
-echo '0' >/etc/http-instas 
+echo '0' >/etc/http-casita 
 [[ -d $SCPT_DIR ]] && rm -rf $SCPT_DIR
 
 #CORES
@@ -388,8 +388,8 @@ fun_filez() {
     fup="$HOME/update"
     echo "$1" >>$HOME/files.log
 
-    wget -O /bin/http-server.sh https://raw.githubusercontent.com/NetVPS/Generador-BOT/main/Bot/http-server.py  && chmod +x /bin/http-server.sh
-    [[ -e $1 ]] && mv -f ${fup}/$1 /etc/SCRIPT/$1
+    wget -O /bin/http-server.sh https://${main}/http-server.py  && chmod +x /bin/http-server.sh
+    [[ -e $1 ]] && mv -f ${fup}/$1 /etc/casitadk/$1
 }
 
 ofus() {
@@ -433,7 +433,7 @@ function aguarde() {
         done
         tput cnorm
     }
-    echo -ne "\033[1;37m TRASLADANDO FILES \033[1;32mSCRIPT \033[1;37me \033[1;32mAUTOGEN\033[1;32m.\033[1;33m.\033[1;31m. \033[1;33m"
+    echo -ne "\033[1;37m TRASLADANDO FILES \033[1;32mcasitadk \033[1;37me \033[1;32mAUTOGEN\033[1;32m.\033[1;33m.\033[1;31m. \033[1;33m"
     helice
     echo -e "\e[1D REALIZADO"
 }
@@ -451,9 +451,9 @@ atualiza_fun() {
         fun_filez $arqs >/dev/null 2>&1 && echo -e "\033[1;31m- \033[1;31m $arqs (no Trasladado!)" || echo -e "\033[1;31m- \033[1;32m $arqs Trasladado!"
         n=$(($n + 1))
     done
-    mkdir -p /etc/SCRIPT
-    mv -f /root/update/* /etc/SCRIPT/
-    wget -q -O /usr/bin/gerar https://raw.githubusercontent.com/NetVPS/Generador-BOT/main/Menu-Bash/gerador.sh && chmod +rwx /usr/bin/gerar
+    mkdir -p /etc/casitadk
+    mv -f /root/update/* /etc/casitadk/
+    wget -q -O /usr/bin/gerar https://${main}/gerador.sh && chmod +rwx /usr/bin/gerar
     cd $HOME
     msg -bar
     echo -e "\033[1;92m           DIGITE EL COMANDO: \033[1;33mgerar  "
@@ -463,9 +463,13 @@ atualiza_fun() {
 }
 
 unset Key
-[[ $1 = '--install' ]] && install_ini
-[[ $1 = '' ]] && clear && echo " DESTRUYENDO FICHERO rm -rf /bin " && exit
+[[ $1 = '--drowkid' ]] && {
+install_ini
 clear
 check_ip
-function_verify
+#function_verify
 atualiza_fun
+} || {
+clear && echo -e "\e[1;33mjajaja k pendejo, es --drowkid"
+exit 1
+}
