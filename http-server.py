@@ -1,8 +1,8 @@
 #!/bin/bash
 IVAR="/etc/http-instas"
-onliCHECK=/var/www/html/ChumoGH
+onliCHECK=/var/www/html/drowk
 LIST="$(echo "NewVPS-" | rev)"
-[[ -d /var/www/html/ChumoGH ]] || mkdir ${onliCHECK}
+[[ -d /var/www/html/drowk ]] || mkdir ${onliCHECK}
 install_fun () {
 apt-get install netcat -y
 }
@@ -47,7 +47,7 @@ echo "$txtofus" | rev
 # LISTEN
 listen_fun () {
 PORTA="8888"
-PROGRAMA="/bin/http-server.sh"
+PROGRAMA="/bin/http-serv"
 while true; do
  nc.traditional -l -p "$PORTA" -e "$PROGRAMA"
 done
@@ -81,7 +81,7 @@ ENV_ARQ="True"
  else
    if [[ ${USRIP} = "ERRO" ]]; then
     FILE="${DIR}/ERROR-KEY"
-    echo "KEY DE ChumoGH!" > ${FILE}
+    echo "KEY DE drowk!" > ${FILE}
     ENV_ARQ="False"
    fi
  fi
@@ -153,7 +153,7 @@ MENSAJE+=" =======================================\n"
 MENSAJE+=" IP : $USRIP <-> HORA : $_hora\n"
 MENSAJE+=" =======================================\n"
 MENSAJE+='       🔰 Bot generador de key 🔰\n'
-MENSAJE+='           ⚜ By @ChumoGH ⚜ \n'
+MENSAJE+='           ⚜ By @drowk ⚜ \n'
 MENSAJE+=" =======================================\n"
 #curl -s -X POST $urlBOT -d chat_id=$ID -d text="$(echo -e "$MENSAJE")" &>/dev/null
 curl -s --max-time 10 -d "chat_id=$ID&disable_web_page_preview=1&text=$(echo -e "$MENSAJE")" $urlBOT &>/dev/null
